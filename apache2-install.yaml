@@ -39,12 +39,12 @@
           path: /var/www/html/index.html
           state: absent
 
-      # - name: move upload folder content to /var/www/html
-      #   ansible.builtin.copy:
-      #     src: /home/azureuser/rehabilitation-yoga/upload/
-      #     dest: /var/www/html/
-      #     owner: root
-      #     group: root
-      #     mode: '0644' 
+      - name: move upload folder content to /var/www/html
+        ansible.builtin.copy:
+          src: /home/azureuser/rehabilitation-yoga/upload/
+          dest: /var/www/html/
+          owner: root
+          group: root
+          mode: '0644' 
 
 #      - name : restart apache2 service 
