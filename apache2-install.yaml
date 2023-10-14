@@ -11,6 +11,11 @@
           name: apache2
           state: present
 
+      - name: install unzip package
+        apt:
+          name: unzip
+          state: present
+
  #     - name: service start
 
  #     - name: remove default index.html 
