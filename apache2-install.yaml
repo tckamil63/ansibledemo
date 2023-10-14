@@ -18,11 +18,16 @@
       - name: download template website
         ansible.builtin.get_url:
           url: https://freewebsitetemplates.com/download/rehabilitation-yoga/
-          dest: /home/azureuser
+          dest: /home/azureuser/test
           mode: '0660'
 
-#      - name: unzip & extract 
-
-#      - name: move upload folder content to /var/www/html 
+#     - name: unzip & extract
+       
+      - name: Unarchive a file that needs to be downloaded (added in 2.0)
+        ansible.builtin.unarchive:
+          src: https://freewebsitetemplates.com/download/rehabilitation-yoga/
+          dest: /home/azureuser
+          remote_src: yes
+#     - name: move upload folder content to /var/www/html 
 
 #      - name : restart apache2 service 
