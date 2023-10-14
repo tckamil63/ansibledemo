@@ -32,7 +32,7 @@
       - name: unzip & extract yoga website
         ansible.builtin.unarchive:
         #  src: https://freewebsitetemplates.com/download/rehabilitation-yoga/
-          src: {{ weburl }}
+          src: "{{ weburl }}"
         #  dest: /home/azureuser
           dest: {{ userfolder }}
           remote_src: yes
