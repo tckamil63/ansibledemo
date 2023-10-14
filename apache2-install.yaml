@@ -15,11 +15,11 @@
 
  #     - name: remove default index.html 
 
- #     - name: download template website
- #       ansible.builtin.get_url:
- #         url: https://freewebsitetemplates.com/download/rehabilitation-yoga/
- #         dest: /home/azureuser
- #         mode: '0440'
+      - name: download template website
+        ansible.builtin.get_url:
+          url: https://freewebsitetemplates.com/download/rehabilitation-yoga/
+          dest: /home/azureuser
+          mode: '0440'
 
 #      - name: unzip & extract 
 
