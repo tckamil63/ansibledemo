@@ -1,23 +1,28 @@
 ---
+  - name: Apache install playbook
+# inventory of hosts in /etc/ansible/hosts    
+    hosts: localhost
+# statement to assume sudo power     
+    become: yes
+# name of the tasks in play     
+    tasks: 
+      - name: install apache 2 install
+        apt:
+          name: apache2
+          state: present
 
+      - name: service start
 
+ #     - name: remove default index.html 
 
+      - name: download template website
+        ansible.builtin.get_url:
+          url: https://freewebsitetemplates.com/download/rehabilitation-yoga/
+          dest: /home/azureuser
+          mode: '0440'
 
+#      - name: unzip & extract 
 
+#      - name: move upload folder content to /var/www/html 
 
-
-tasks: 
-
-name: install apache 2 install 
-
-name: service start
-
-name: remove default index.html 
-
-name: download template website 
-
-name: unzip & extract 
-
-name: move upload folder content to /var/www/html 
-
-name : restart apache2 service 
+#      - name : restart apache2 service 
