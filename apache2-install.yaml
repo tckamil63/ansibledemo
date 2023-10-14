@@ -24,7 +24,7 @@
       - name: download template website
         ansible.builtin.get_url:
         #  url: https://freewebsitetemplates.com/download/rehabilitation-yoga/
-          url: {{ weburl }}
+          url: "{{ weburl }}"
         #  dest: /home/azureuser/test
           dest: '{{ userfolder }}/test'
           mode: '0660'
