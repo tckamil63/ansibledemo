@@ -1,0 +1,23 @@
+---
+
+
+
+
+
+
+
+tasks: 
+
+name: install apache 2 install 
+
+name: service start
+
+name: remove default index.html 
+
+name: download template website 
+
+name: unzip & extract 
+
+name: move upload folder content to /var/www/html 
+
+name : restart apache2 service 
