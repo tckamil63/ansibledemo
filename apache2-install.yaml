@@ -37,11 +37,16 @@
           dest: "{{ userfolder }}"
           remote_src: yes
 
-      - name: remove default index.html
+      - name: Remove folder contents
         ansible.builtin.file:
-        #  path: /var/www/html/index.html
-          path: '{{ webfolder }}/index.html'
           state: absent
+          path: '{{ webfolder }}/*'
+
+      # - name: remove default index.html
+      #   ansible.builtin.file:
+      #   #  path: /var/www/html/index.html
+      #     path: '{{ webfolder }}/index.html'
+      #     state: absent
 
       - name: move upload folder content to /var/www/html
         ansible.builtin.copy:
