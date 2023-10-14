@@ -16,24 +16,18 @@
           name: unzip
           state: present
 
- #     - name: service start
-
-
       - name: download template website
         ansible.builtin.get_url:
           url: https://freewebsitetemplates.com/download/rehabilitation-yoga/
           dest: /home/azureuser/test
           mode: '0660'
 
-#     - name: unzip & extract
-       
-      - name: Unarchive a file that needs to be downloaded (added in 2.0)
+      - name: unzip & extract yoga website
         ansible.builtin.unarchive:
           src: https://freewebsitetemplates.com/download/rehabilitation-yoga/
           dest: /home/azureuser
           remote_src: yes
 
-          
       - name: remove default index.html
         ansible.builtin.file:
           path: /var/www/html/index.html
@@ -46,5 +40,3 @@
           owner: root
           group: root
           mode: '0644' 
-
-#      - name : restart apache2 service 
