@@ -34,7 +34,7 @@
         #  src: https://freewebsitetemplates.com/download/rehabilitation-yoga/
           src: "{{ weburl }}"
         #  dest: /home/azureuser
-          dest: {{ userfolder }}
+          dest: "{{ userfolder }}"
           remote_src: yes
 
       - name: remove default index.html
