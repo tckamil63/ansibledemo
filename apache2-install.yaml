@@ -19,7 +19,7 @@
         ansible.builtin.get_url:
           url: https://freewebsitetemplates.com/download/rehabilitation-yoga/
           dest: /home/azureuser
-          mode: '0440'
+          mode: '0660'
 
 #      - name: unzip & extract 
 
