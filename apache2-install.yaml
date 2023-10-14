@@ -4,6 +4,11 @@
     hosts: localhost
 # statement to assume sudo power     
     become: yes
+
+    vars: 
+      - userfolder: /home/azureuser
+      - weburl: https://freewebsitetemplates.com/download/rehabilitation-yoga/
+      - webfolder: /var/www/html
 # name of the tasks in play     
     tasks: 
       - name: install apache 2 install
@@ -18,25 +23,32 @@
 
       - name: download template website
         ansible.builtin.get_url:
-          url: https://freewebsitetemplates.com/download/rehabilitation-yoga/
-          dest: /home/azureuser/test
+        #  url: https://freewebsitetemplates.com/download/rehabilitation-yoga/
+          url: {{ weburl }}
+        #  dest: /home/azureuser/test
+          dest: '{{ userfolder }}/test'
           mode: '0660'
 
       - name: unzip & extract yoga website
         ansible.builtin.unarchive:
-          src: https://freewebsitetemplates.com/download/rehabilitation-yoga/
-          dest: /home/azureuser
+        #  src: https://freewebsitetemplates.com/download/rehabilitation-yoga/
+          src: {{ weburl }}
+        #  dest: /home/azureuser
+          dest: {{ userfolder }}
           remote_src: yes
 
       - name: remove default index.html
         ansible.builtin.file:
-          path: /var/www/html/index.html
+        #  path: /var/www/html/index.html
+          path: '{{ webfolder }}/index.html'
           state: absent
 
       - name: move upload folder content to /var/www/html
         ansible.builtin.copy:
-          src: /home/azureuser/rehabilitation-yoga/upload/
-          dest: /var/www/html/
+        #  src: /home/azureuser/rehabilitation-yoga/upload/
+          src: '{{ userfolder }}/rehabilitation-yoga/upload/'
+        #  dest: /var/www/html/
+          dest: '{{ webfolder }}/'
           owner: root
           group: root
           mode: '0644' 
