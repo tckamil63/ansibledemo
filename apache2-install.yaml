@@ -40,6 +40,7 @@
       - name: Remove folder contents
         ansible.builtin.file:
           state: absent
+       #   path: /var/www/html/* 
           path: '{{ webfolder }}/*'
 
       # - name: remove default index.html
@@ -48,12 +49,12 @@
       #     path: '{{ webfolder }}/index.html'
       #     state: absent
 
-      - name: move upload folder content to /var/www/html
-        ansible.builtin.copy:
-        #  src: /home/azureuser/rehabilitation-yoga/upload/
-          src: '{{ userfolder }}/rehabilitation-yoga/upload/'
-        #  dest: /var/www/html/
-          dest: '{{ webfolder }}/'
-          owner: root
-          group: root
-          mode: '0644' 
+      # - name: move upload folder content to /var/www/html
+      #   ansible.builtin.copy:
+      #   #  src: /home/azureuser/rehabilitation-yoga/upload/
+      #     src: '{{ userfolder }}/rehabilitation-yoga/upload/'
+      #   #  dest: /var/www/html/
+      #     dest: '{{ webfolder }}/'
+      #     owner: root
+      #     group: root
+      #     mode: '0644' 
