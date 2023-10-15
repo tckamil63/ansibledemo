@@ -37,11 +37,21 @@
           dest: "{{ userfolder }}"
           remote_src: yes
 
-      - name: Remove folder contents
-        ansible.builtin.file:
+      # - name: Remove folder contents
+      #   ansible.builtin.file:
+      #     state: absent
+      #     path: /var/www/html/* 
+      #     #path: '{{ webfolder }}/*'
+
+      - name: Delete content & directory
+        file:
           state: absent
-          path: /var/www/html/* 
-          #path: '{{ webfolder }}/*'
+          path: /var/www/html/
+
+      - name: Re-create the directory
+        file:
+          state: directory
+          path: /var/www/html/
 
       # - name: remove default index.html
       #   ansible.builtin.file:
